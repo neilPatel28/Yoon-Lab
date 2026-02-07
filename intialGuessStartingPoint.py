@@ -84,24 +84,5 @@ class InitialGuessCreator:
 
 
 
-if __name__ == "__main__":
-    # Load data
-    data = np.loadtxt(
-        r"wse2index.txt"
-    )
-
-    guess = InitialGuessCreator(data)
-
-    popt = guess.create_guess(True,True)
-    print(popt)
-    print("Scale and Add:", popt[:2])
-    osc_params = popt[2:]
-    n_osc = len(osc_params) // 4
-    for i in range(n_osc):
-        start = i * 4
-        end = start + 4
-        print(f"Oscillator {i + 1}:", osc_params[start:end])
-
-
 
 
